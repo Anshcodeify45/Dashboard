@@ -2,8 +2,9 @@ import React from 'react'
 
 function About() {
   return (
-    <div>
-     about 
+    <div style={{marginTop:48}}>
+      <h1>about</h1>
+      
     </div>
   )
 }
