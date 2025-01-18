@@ -8,13 +8,13 @@ import Stack from '@mui/material/Stack';
 
 function Home() {
   return (
-    <Box style={{marginTop:78}}>
+    <Box style={{marginTop:78,marginLeft:10,border:"2px solid",width:"100%",height:"88vh"}}>
     <Navbar/>
-    <Box style={{marginLeft:10}}>
-    <Grid container spacing={2}>
+    <Box>
+    <Grid container spacing={2} style={{paddingTop:25}}>
         <Grid item xs={8}>
         <Stack spacing={2} direction="row">
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 49 +"%" ,height:140 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Lizard
@@ -26,7 +26,7 @@ function Home() {
       </CardContent>
     </Card>
           
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 49 +"%" ,height:140 }}>
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           Lizard
@@ -39,8 +39,48 @@ function Home() {
     </Card>
     </Stack>
         </Grid>
+
+        
         <Grid item xs={4}>
-         
+        <Stack spacing={2}>
+        <Card sx={{ maxWidth: 345 }}>
+      <CardContent>
+       
+      </CardContent>
+    </Card>
+          
+    <Card sx={{ maxWidth: 345 }}>
+      <CardContent>
+        
+      </CardContent>
+    </Card>
+    </Stack>
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={2} style={{paddingTop:25}}>
+        <Grid item xs={8}>
+        <Stack spacing={2}>
+        <Card sx={{ height:60 + "vh",border:"2px solid"}}>
+      <CardContent>
+
+      </CardContent>
+    </Card>
+        
+    </Stack>
+        </Grid>
+
+        
+        <Grid item xs={4}>
+        
+        <Card sx={{ height:60 + "vh" ,border:"2px solid"}}>
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          Lizard
+        </Typography>
+      </CardContent>
+    </Card>
+    
         </Grid>
       </Grid>
     </Box>
