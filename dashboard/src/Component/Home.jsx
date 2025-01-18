@@ -1,15 +1,14 @@
 import React from 'react'
-import Sidenav from './Sidenav'
-import { Box,Typography} from '@mui/material'
+import Navbar from './Navbar'
+import { Box} from '@mui/material'
 function Home() {
   return (
-    <>
-    <Box sx={{ display: 'flex' ,marginTop:8}}>
-    <h1>
-      Home
-    </h1>
+    <Box style={{marginTop:34}}>
+    <Navbar/>
+    <Box>
+    <h1>Home</h1>
     </Box>
-    </>
+    </Box>
   )
 }
 
