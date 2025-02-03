@@ -15,6 +15,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import {useNavigate} from 'react-router-dom'
 import { useAppStore } from '../Apstore';
+import CountUp from 'react-countup';
 
 
 
@@ -228,6 +229,53 @@ export default function Sidenav() {
                 </ListItemIcon>
                 <ListItemText
                   primary="Settings"
+                  sx={[
+                    open
+                      ? {
+                          opacity: 1,
+                        }
+                      : {
+                          opacity: 0,
+                        },
+                  ]}
+                />
+              </ListItemButton>
+            </ListItem>
+            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>nav("/analytics")}>
+              <ListItemButton
+                sx={[
+                  {
+                    minHeight: 48,
+                    px: 2.5,
+                  },
+                  open
+                    ? {
+                        justifyContent: 'initial',
+                      }
+                    : {
+                        justifyContent: 'center',
+                      },
+                ]}
+              >
+                <ListItemIcon
+                  sx={[
+                    {
+                      minWidth: 0,
+                      justifyContent: 'center',
+                    },
+                    open
+                      ? {
+                          mr: 3,
+                        }
+                      : {
+                          mr: 'auto',
+                        },
+                  ]}
+                >
+                  <InboxIcon />
+                </ListItemIcon>
+                <ListItemText
+                  primary="Analytics"
                   sx={[
                     open
                       ? {

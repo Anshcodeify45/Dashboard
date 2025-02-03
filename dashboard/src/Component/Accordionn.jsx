@@ -9,7 +9,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 export default function Accordionn() {
   return (
     <div>
-      <Accordion>
+      <Accordion sx={{ backgroundColor: '#633C9C', color: 'white' }}>
         <AccordionSummary
           expandIcon={<ArrowDownwardIcon />}
           aria-controls="panel1-content"
@@ -24,7 +24,7 @@ export default function Accordionn() {
           </Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion sx={{ backgroundColor: '#633C9C', color: 'white' }}>
         <AccordionSummary
           expandIcon={<ArrowDropDownIcon />}
           aria-controls="panel2-content"

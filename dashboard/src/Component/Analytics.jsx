@@ -25,15 +25,15 @@ const Leftcard = styled(Box)`
  width:100%; 
 `
 
-function Home() {
+function Analytics() {
   return (
     <Box style={{marginTop:70,width:"100%",height:"88vh",backgroundColor:"#633C9C"}}>
     <Navbar/>
     <Box style={{backgroundColor:"#633C9C"}}>
     <Grid container spacing={2} style={{paddingTop:25,paddingLeft:10}}>
         <Grid item xs={8}>
-        <Stack spacing={2} direction="row">
-        <Card sx={{ width: 99 +"%" ,height:130}}>
+    <Stack spacing={2} direction="row">
+        <Card sx={{ width: 30 +"%" ,height:130}}>
       <CardContent style={{backgroundColor:"#4E228E",color:"white"}}>
         <Leftcard >
           <Box><LocalAtmIcon/></Box>
@@ -51,7 +51,45 @@ function Home() {
       </CardContent>
     </Card>
 
-    <Card sx={{ width: 99 +"%" ,height:130}}>
+    <Card sx={{  width: 30 +"%",height:130}}>
+      <CardContent style={{backgroundColor:"#7D5AB1",color:"white"}}>
+        <Leftcard >
+          <Box><LocalAtmIcon/></Box>
+          <Box>
+          <Typography gutterBottom variant="h5" component="div">
+            $500.00
+          </Typography>
+          </Box>
+          <Box>
+          <Typography variant="body2">
+            Total Earnings
+        </Typography>
+          </Box>
+        </Leftcard>
+      </CardContent>
+    </Card>
+    </Stack>
+
+    <Stack spacing={2} direction="row" style={{paddingTop:"10px"}}>
+    <Card sx={{  width: 30 +"%" ,height:130}}>
+      <CardContent style={{backgroundColor:"#4E228E",color:"white"}}>
+        <Leftcard >
+          <Box><LocalAtmIcon/></Box>
+          <Box>
+          <Typography gutterBottom variant="h5" component="div">
+            $500.00
+          </Typography>
+          </Box>
+          <Box>
+          <Typography variant="body2">
+            Total Earnings
+        </Typography>
+          </Box>
+        </Leftcard>
+      </CardContent>
+    </Card>
+
+    <Card sx={{ width: 30 +"%" ,height:130}}>
       <CardContent style={{backgroundColor:"#7D5AB1",color:"white"}}>
         <Leftcard >
           <Box><LocalAtmIcon/></Box>
@@ -74,35 +112,21 @@ function Home() {
         </Grid>
 
         
-        <Grid item xs={4}>
-        <Stack spacing={2}>
-        <Card sx={{ maxWidth: 345 }}>
-      <CardContent style={{backgroundColor:" #4E228E",color:"white"}}>
-        <ParentBox>
-          <Box><AccountBalanceIcon/></Box>
-          <Box>
-            <Box><Typography style={{fontWeight:600}}>$203K</Typography></Box>
-            <Box><Typography>Total Income</Typography></Box>
-          </Box>
-        </ParentBox>
-       
+        <Grid item xs={7}>
+        <Stack spacing={1}>
+      <Card sx={{ backgroundColor:"#633C9C"}}>
+      <CardContent>
+        <Box >
+        <ChartGraph style={{backgroundColor:"#633C9C"}}/>
+        </Box>
+        
       </CardContent>
     </Card>
           
-    <Card sx={{ maxWidth: 345 }}>
-      <CardContent style={{backgroundColor:" #38146F",color:"white"}}>
-      <ParentBox>
-          <Box><AccountBalanceIcon/></Box>
-          <Box>
-            <Box><Typography style={{fontWeight:600}}>$203K</Typography></Box>
-            <Box><Typography>Total Income</Typography></Box>
-          </Box>
-        </ParentBox>
-      </CardContent>
-    </Card>
+  
     </Stack>
         </Grid>
-      </Grid>
+    </Grid>
 
       <Grid container spacing={2} style={{paddingTop:25}}>
         <Grid item xs={8}>
@@ -146,4 +170,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Analytics
