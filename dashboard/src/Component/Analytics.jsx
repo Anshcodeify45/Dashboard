@@ -1,173 +1,57 @@
-import React from 'react'
-import Navbar from './Navbar'
-import { Box,Typography,styled} from '@mui/material'
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+import Paper from '@mui/material/Paper';
+import Navbar from './Navbar'
+import { Box } from '@mui/system';
 import Stack from '@mui/material/Stack';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import LocalAtmIcon from '@mui/icons-material/LocalAtm';
-import Accordionn from './Accordionn';
-import ChartGraph from './ChartGraph';
-import { border, height, width } from '@mui/system';
 
 
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+  ...theme.applyStyles('dark', {
+    backgroundColor: '#1A2027',
+  }),
+}));
 
+const Container = styled(Box)`
+  margin-top:55px;
+  `
 
-const ParentBox = styled(Box)`
- display:flex;
- align-items:center;
- justify-content:space-evenly;
- width:70%;
-`
-
-const Leftcard = styled(Box)`
- width:100%; 
-`
-
-function Analytics() {
+export default function Analytics() {
   return (
-    <Box style={{marginTop:70,width:"100%",height:"88vh",backgroundColor:"#633C9C"}}>
-    <Navbar/>
-    <Box style={{backgroundColor:"#633C9C"}}>
-    <Grid container spacing={2} style={{paddingTop:25,paddingLeft:10}}>
-        <Grid item xs={8}>
-    <Stack spacing={2} direction="row">
-        <Card sx={{ width: 30 +"%" ,height:130}}>
-      <CardContent style={{backgroundColor:"#4E228E",color:"white"}}>
-        <Leftcard >
-          <Box><LocalAtmIcon/></Box>
-          <Box>
-          <Typography gutterBottom variant="h5" component="div">
-            $500.00
-          </Typography>
-          </Box>
-          <Box>
-          <Typography variant="body2">
-            Total Earnings
-        </Typography>
-          </Box>
-        </Leftcard>
-      </CardContent>
-    </Card>
-
-    <Card sx={{  width: 30 +"%",height:130}}>
-      <CardContent style={{backgroundColor:"#7D5AB1",color:"white"}}>
-        <Leftcard >
-          <Box><LocalAtmIcon/></Box>
-          <Box>
-          <Typography gutterBottom variant="h5" component="div">
-            $500.00
-          </Typography>
-          </Box>
-          <Box>
-          <Typography variant="body2">
-            Total Earnings
-        </Typography>
-          </Box>
-        </Leftcard>
-      </CardContent>
-    </Card>
-    </Stack>
-
-    <Stack spacing={2} direction="row" style={{paddingTop:"10px"}}>
-    <Card sx={{  width: 30 +"%" ,height:130}}>
-      <CardContent style={{backgroundColor:"#4E228E",color:"white"}}>
-        <Leftcard >
-          <Box><LocalAtmIcon/></Box>
-          <Box>
-          <Typography gutterBottom variant="h5" component="div">
-            $500.00
-          </Typography>
-          </Box>
-          <Box>
-          <Typography variant="body2">
-            Total Earnings
-        </Typography>
-          </Box>
-        </Leftcard>
-      </CardContent>
-    </Card>
-
-    <Card sx={{ width: 30 +"%" ,height:130}}>
-      <CardContent style={{backgroundColor:"#7D5AB1",color:"white"}}>
-        <Leftcard >
-          <Box><LocalAtmIcon/></Box>
-          <Box>
-          <Typography gutterBottom variant="h5" component="div">
-            $500.00
-          </Typography>
-          </Box>
-          <Box>
-          <Typography variant="body2">
-            Total Earnings
-        </Typography>
-          </Box>
-        </Leftcard>
-      </CardContent>
-    </Card>
-          
-   
-    </Stack>
-        </Grid>
-
-        
-        <Grid item xs={7}>
-        <Stack spacing={1}>
-      <Card sx={{ backgroundColor:"#633C9C"}}>
-      <CardContent>
-        <Box >
-        <ChartGraph style={{backgroundColor:"#633C9C"}}/>
-        </Box>
-        
-      </CardContent>
-    </Card>
-          
-  
-    </Stack>
-        </Grid>
-    </Grid>
-
-      <Grid container spacing={2} style={{paddingTop:25}}>
-        <Grid item xs={8}>
-        <Stack spacing={2}>
-        <Card sx={{ height:52 + "vh",backgroundColor:"#633C9C"}}>
-      <CardContent>
-        <Box >
-        <ChartGraph style={{backgroundColor:"#633C9C"}}/>
-        </Box>
-        
-      </CardContent>
-    </Card>
-        
-    </Stack>
-        </Grid>
-
-        
+    <Box style={{marginTop:55,width:"100%",height:"92vh",backgroundColor:"#633C9C"}}>
+        <Navbar/>
+        <Container>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={4}>
-        
-        <Card sx={{ height:52 + "vh" ,backgroundColor:"#633C9C"}}>
-      <CardContent>
-        <Box>
-        <Box>
-        <Typography gutterBottom variant="h5" component="div">
-          Popular Products
-        </Typography>
-        </Box>
-        <Box>
-        <Accordionn/>
-        </Box>
-        </Box>
-        
-        
-      </CardContent>
-    </Card>
-    
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item xs={4}>
+        <Stack spacing={2}>
+          <Item>1</Item>
+          <Item>1</Item>
+          </Stack>
         </Grid>
-      </Grid>
-    </Box>
-    </Box>
-  )
-}
+      </Grid>        
+        </Grid>
+        <Grid item xs={4}>
+        <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+        <Grid item xs={4}>
+        <Stack spacing={2}>
+          <Item>1</Item>
+          <Item>1</Item>
+          </Stack>
+        </Grid>
+      </Grid>        
+        </Grid>
 
-export default Analytics
+
+      </Grid>
+        </Container>
+    </Box>
+  );
+}
