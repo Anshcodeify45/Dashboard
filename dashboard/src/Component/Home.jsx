@@ -114,9 +114,8 @@ function Home() {
         </Box>
         
       </CardContent>
-    </Card>
-        
-    </Stack>
+        </Card>
+        </Stack>
         </Grid>
 
         

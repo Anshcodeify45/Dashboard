@@ -20,7 +20,7 @@ const options = {
     subtitle: "Sales and Expenses over the Years",
   },
   colors: ["#4E228E", "#38146F", "#A589D0"],
-  backgroundColor: "#633C9C", // ✅ Background color applied
+  
   hAxis: { title: "Year", titleTextStyle: { color: "#B0B0B0" },textStyle: { color: "white" }},
   vAxis: { title: "Value", titleTextStyle: { color: "#B0B0B0" } ,textStyle: { color: "white"}},
  
@@ -33,7 +33,7 @@ function ChartGraph() {
       // Note the usage of Bar and not BarChart for the material version
       chartType="ColumnChart"
       width="100%"
-      height="350px"
+      height="250px"
       data={data}
       options={options}
       color="white"
