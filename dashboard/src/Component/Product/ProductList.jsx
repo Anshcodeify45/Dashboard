@@ -7,59 +7,87 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { useState,useEffect } from 'react';
+import { Button,Box } from '@mui/material';
+import { db } from '../../FireBase-config';
+import {addDoc,updateDoc,deleteDoc,doc} from 'firebase/firestore'
+import EditIcon from '@mui/icons-material/Edit'
+import DeleteIcon from '@mui/icons-material/Delete'
+import Swal from 'sweetalert2'
+import TextField from '@mui/material';
+import Autocomplete from '@mui/material';
+import { collection } from 'firebase/firestore';
+import { getDocs } from 'firebase/firestore';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
+import {Stack} from '@mui/material';
 
-const columns = [
-  { id: 'name', label: 'Name', minWidth: 170 },
-  { id: 'code', label: 'ISO\u00a0Code', minWidth: 100 },
-  {
-    id: 'population',
-    label: 'Population',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'size',
-    label: 'Size\u00a0(km\u00b2)',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toLocaleString('en-US'),
-  },
-  {
-    id: 'density',
-    label: 'Density',
-    minWidth: 170,
-    align: 'right',
-    format: (value) => value.toFixed(2),
-  },
-];
 
-function createData(name, code, population, size) {
-  const density = population / size;
-  return { name, code, population, size, density };
-}
 
-const rows = [
-  createData('India', 'IN', 1324171354, 3287263),
-  createData('China', 'CN', 1403500365, 9596961),
-  createData('Italy', 'IT', 60483973, 301340),
-  createData('United States', 'US', 327167434, 9833520),
-  createData('Canada', 'CA', 37602103, 9984670),
-  createData('Australia', 'AU', 25475400, 7692024),
-  createData('Germany', 'DE', 83019200, 357578),
-  createData('Ireland', 'IE', 4857000, 70273),
-  createData('Mexico', 'MX', 126577691, 1972550),
-  createData('Japan', 'JP', 126317000, 377973),
-  createData('France', 'FR', 67022000, 640679),
-  createData('United Kingdom', 'GB', 67545757, 242495),
-  createData('Russia', 'RU', 146793744, 17098246),
-  createData('Nigeria', 'NG', 200962417, 923768),
-  createData('Brazil', 'BR', 210147125, 8515767),
-];
 
 export default function ProductList() {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rows, setRows] = useState([]);
+  const empCollectionRef = collection(db,"products");
+  console.log("Firestore Collection Reference:", empCollectionRef);
+
+
+  
+
+  useEffect(()=>{
+    getUsers();
+  },[])
+
+  const getUsers = async () => {
+    try {
+      const querySnapshot = await getDocs(empCollectionRef);
+  
+      // Check if Firestore returns any documents
+      if (querySnapshot.empty) {
+        console.log("No documents found in Firestore ❌");
+      } else {
+        console.log("Documents found ✅");
+        querySnapshot.forEach((doc) => {
+          console.log(`Document ID: ${doc.id}`, doc.data()); // Log each document
+        });
+      }
+  
+      // Store in state
+      setRows(querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      })));
+    } catch (error) {
+      console.error("Error fetching data from Firestore:", error);
+    }
+  };
+  useEffect(() => {
+    console.log("Updated Rows:", rows); // Log the updated state
+  }, [rows]);
+
+ //delete event
+    const deleteUser = (id) => {
+        Swal.fire({
+            title:"Are you sure?",
+            text:"You won't ve able to revert this!",
+            icon:"warning",
+            showCancelButton:true,
+            confirmButtonColor:"#3085d6",
+            cancelButtonColor:"#d33",
+            confirmButtonText:"Yes"
+        }).then((result) => {
+            if(result.value){
+                deleteApi(id);
+            }
+        })
+    }
+
+    const deleteApi = async(id) => {
+        const userDoc = doc(db,"products",id);
+        await deleteDoc(userDoc);
+        Swal.fire("Deleted", "Your file has been deleted","success")
+        getUsers();
+    }
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -76,36 +104,59 @@ export default function ProductList() {
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
-              {columns.map((column) => (
                 <TableCell
-                  key={column.id}
-                  align={column.align}
-                  style={{ minWidth: column.minWidth }}
+                  align="left"
+                  style={{ minWidth: "100px"}}
                 >
-                  {column.label}
+                  Name
                 </TableCell>
-              ))}
+                <TableCell
+                  align="left"
+                  style={{ minWidth: "100px"}}
+                >
+                  Category
+                </TableCell>
+                <TableCell
+                  align="left"
+                  style={{ minWidth: "100px"}}
+                >
+                  Price
+                </TableCell>
+                <TableCell
+                  align="left"
+                  style={{ minWidth: "100px"}}
+                >
+                  Date
+                </TableCell>
+                <TableCell
+                  align="left"
+                  style={{ minWidth: "100px"}}
+                >
+                  Edit
+                </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1} key={row.code}>
-                    {columns.map((column) => {
-                      const value = row[column.id];
-                      return (
-                        <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === 'number'
-                            ? column.format(value)
-                            : value}
+            
+          {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                    return (
+                    <TableRow hover role="checkbox" tabIndex={-1}>
+                        <TableCell key={row.id} align="left">{row.Name}</TableCell>
+                        <TableCell key={row.id} align="left">{row.Category}</TableCell>
+                        <TableCell key={row.id} align="left">{row.Price}</TableCell>
+                        <TableCell key={row.id} align="left">{row.Date}</TableCell>
+                        <TableCell key={row.id} align="left">
+                            <Stack spacing={2} direction="row">
+                                <EditIcon style={{fontSize:"20px",color:"blue",cursor:"pointer"}}  />
+                                <DeleteIcon style={{fontSize:"20px",color:"darkred",cursor:"pointer"}} onClick={()=> deleteUser(row.id)} />
+                            </Stack>
                         </TableCell>
-                      );
-                    })}
-                  </TableRow>
-                );
-              })}
+                    </TableRow>
+                    
+                    );
+                })
+          }
+                            
           </TableBody>
         </Table>
       </TableContainer>
