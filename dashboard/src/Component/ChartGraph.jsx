@@ -33,7 +33,7 @@ function ChartGraph() {
       // Note the usage of Bar and not BarChart for the material version
       chartType="ColumnChart"
       width="100%"
-      height="250px"
+      height="350px"
       data={data}
       options={options}
       color="white"

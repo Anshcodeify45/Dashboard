@@ -9,8 +9,7 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import Accordionn from './Accordionn';
 import ChartGraph from './ChartGraph';
-import { border, height, width } from '@mui/system';
-
+import CountUp from 'react-countup';
 
 
 
@@ -27,10 +26,10 @@ const Leftcard = styled(Box)`
 
 function Home() {
   return (
-    <Box style={{marginTop:70,width:"100%",height:"88vh",backgroundColor:"#633C9C"}}>
+    <Box style={{marginTop:55,width:"100%",height:"91vh",backgroundColor:"#edeff1"}}>
     <Navbar/>
-    <Box style={{backgroundColor:"#633C9C"}}>
-    <Grid container spacing={2} style={{paddingTop:25,paddingLeft:10}}>
+    <Box style={{backgroundColor:"#edeff1"}}>
+    <Grid container spacing={2} style={{paddingTop:25,paddingLeft:25}}>
         <Grid item xs={8}>
         <Stack spacing={2} direction="row">
         <Card sx={{ width: 99 +"%" ,height:130}}>
@@ -39,7 +38,7 @@ function Home() {
           <Box><LocalAtmIcon/></Box>
           <Box>
           <Typography gutterBottom variant="h5" component="div">
-            $500.00
+           $<CountUp start={0} end={505} duration={2.75}/>
           </Typography>
           </Box>
           <Box>
@@ -57,7 +56,7 @@ function Home() {
           <Box><LocalAtmIcon/></Box>
           <Box>
           <Typography gutterBottom variant="h5" component="div">
-            $500.00
+          $<CountUp start={0} end={545} duration={2.75}/>
           </Typography>
           </Box>
           <Box>
@@ -75,13 +74,13 @@ function Home() {
 
         
         <Grid item xs={4}>
-        <Stack spacing={2}>
-        <Card sx={{ maxWidth: 345 }}>
+        <Stack spacing={1}>
+        <Card sx={{ maxWidth: 300 }}>
       <CardContent style={{backgroundColor:" #4E228E",color:"white"}}>
         <ParentBox>
           <Box><AccountBalanceIcon/></Box>
           <Box>
-            <Box><Typography style={{fontWeight:600}}>$203K</Typography></Box>
+            <Box><Typography style={{fontWeight:600}}>$<CountUp start={0} end={245} duration={2.75}/>K</Typography></Box>
             <Box><Typography>Total Income</Typography></Box>
           </Box>
         </ParentBox>
@@ -89,12 +88,12 @@ function Home() {
       </CardContent>
     </Card>
           
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 300 }}>
       <CardContent style={{backgroundColor:" #38146F",color:"white"}}>
       <ParentBox>
           <Box><AccountBalanceIcon/></Box>
           <Box>
-            <Box><Typography style={{fontWeight:600}}>$203K</Typography></Box>
+            <Box><Typography style={{fontWeight:600}}>$<CountUp start={0} end={203} duration={2.75}/>K</Typography></Box>
             <Box><Typography>Total Income</Typography></Box>
           </Box>
         </ParentBox>
@@ -104,13 +103,13 @@ function Home() {
         </Grid>
       </Grid>
 
-      <Grid container spacing={2} style={{paddingTop:25}}>
-        <Grid item xs={8}>
+      <Grid container spacing={2} style={{paddingTop:25,paddingLeft:"28px"}}>
+        <Grid item xs={7}>
         <Stack spacing={2}>
-        <Card sx={{ height:52 + "vh",backgroundColor:"#633C9C"}}>
+        <Card sx={{ height:52 + "vh"}}>
       <CardContent>
         <Box >
-        <ChartGraph style={{backgroundColor:"#633C9C"}}/>
+        <ChartGraph/>
         </Box>
         
       </CardContent>
@@ -121,7 +120,7 @@ function Home() {
         
         <Grid item xs={4}>
         
-        <Card sx={{ height:52 + "vh" ,backgroundColor:"#633C9C"}}>
+        <Card sx={{ height:52 + "vh" }}>
       <CardContent>
         <Box>
         <Box>

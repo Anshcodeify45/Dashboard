@@ -11,6 +11,7 @@ import ChartGraph from './ChartGraph';
 import GeoChart from './Charts/Geochart';
 import Pie from './Charts/Pie';
 import Linergraph from './Charts/Linergraph';
+import CountUp from 'react-countup';
 
 
 
@@ -41,7 +42,7 @@ export default function Analytics() {
         <ParentBox>
         <Box style={{alignItems:"start",paddingBottom:"10px"}}>
             <Box><Typography style={{fontSize:"13px",paddingBottom:"2px"}}>Visitors</Typography></Box>
-            <Box><Typography style={{fontSize:"20px"}}>20300</Typography></Box>
+            <Box><Typography style={{fontSize:"20px"}}><CountUp start={0} end={245600} duration={2.75}/></Typography></Box>
             <Box><Typography variant='p' style={{fontSize:"13px"}}>Since last week</Typography></Box>
           </Box>
         </ParentBox>
@@ -53,7 +54,7 @@ export default function Analytics() {
         <ParentBox>
         <Box style={{alignItems:"start",paddingBottom:"10px"}}>
             <Box><Typography style={{fontSize:"13px",paddingBottom:"2px"}}>Visitors</Typography></Box>
-            <Box><Typography style={{fontSize:"20px"}}>20300</Typography></Box>
+            <Box><Typography style={{fontSize:"20px"}}> <CountUp start={0} end={200600} duration={2.75}/></Typography></Box>
             <Box><Typography variant='p' style={{fontSize:"13px"}}>Since last week</Typography></Box>
           </Box>
         </ParentBox>
@@ -67,7 +68,7 @@ export default function Analytics() {
         <ParentBox>
            <Box style={{alignItems:"start",paddingBottom:"10px"}}>
             <Box><Typography style={{fontSize:"13px",paddingBottom:"2px"}}>Visitors</Typography></Box>
-            <Box><Typography style={{fontSize:"20px"}}>20300</Typography></Box>
+            <Box><Typography style={{fontSize:"20px"}}><CountUp start={0} end={272600} duration={2.75}/></Typography></Box>
             <Box><Typography variant='p' style={{fontSize:"13px"}}>Since last week</Typography></Box>
           </Box>
         </ParentBox>
@@ -79,7 +80,7 @@ export default function Analytics() {
         <ParentBox>
           <Box style={{alignItems:"start",paddingBottom:"10px"}}>
             <Box><Typography style={{fontSize:"13px",paddingBottom:"2px"}}>Visitors</Typography></Box>
-            <Box><Typography style={{fontSize:"20px"}}>20300</Typography></Box>
+            <Box><Typography style={{fontSize:"20px"}}><CountUp start={0} end={245400} duration={2.75}/></Typography></Box>
             <Box><Typography variant='p' style={{fontSize:"13px"}}>Since last week</Typography></Box>
           </Box>
         </ParentBox>
