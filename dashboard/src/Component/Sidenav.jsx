@@ -15,7 +15,7 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import {useNavigate} from 'react-router-dom'
 import { useAppStore } from '../Apstore';
-import CountUp from 'react-countup';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 
@@ -147,7 +147,7 @@ export default function Sidenav() {
                 />
               </ListItemButton>
             </ListItem>
-            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>nav("/about")}>
+            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>nav("/product")}>
               <ListItemButton
                 sx={[
                   {
@@ -178,10 +178,10 @@ export default function Sidenav() {
                         },
                   ]}
                 >
-                  <InboxIcon />
+                  <ShoppingCartIcon />
                 </ListItemIcon>
                 <ListItemText
-                  primary="About"
+                  primary="product"
                   sx={[
                     open
                       ? {
