@@ -14,13 +14,27 @@ import {addDoc,updateDoc,deleteDoc,doc} from 'firebase/firestore'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import Swal from 'sweetalert2'
-import TextField from '@mui/material';
-import Autocomplete from '@mui/material';
+import {TextField} from '@mui/material';
+import {Autocomplete} from '@mui/material';
 import { collection } from 'firebase/firestore';
 import { getDocs } from 'firebase/firestore';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import {Stack} from '@mui/material';
+import {Typography} from '@mui/material';
+import Modal from '@mui/material/Modal';
+import Addproduct from './Addproduct';
+import Editproduct from './Editproduct';
 
+const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    boxShadow: 24,
+    p: 4,
+  };
 
 
 
@@ -28,6 +42,9 @@ export default function ProductList() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const [rows, setRows] = useState([]);
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const empCollectionRef = collection(db,"products");
   console.log("Firestore Collection Reference:", empCollectionRef);
 
@@ -69,7 +86,7 @@ export default function ProductList() {
     const deleteUser = (id) => {
         Swal.fire({
             title:"Are you sure?",
-            text:"You won't ve able to revert this!",
+            text:"You won't be able to revert this!",
             icon:"warning",
             showCancelButton:true,
             confirmButtonColor:"#3085d6",
@@ -81,7 +98,15 @@ export default function ProductList() {
             }
         })
     }
-
+ //filter data
+ const filterData = (selectedProduct) => {
+    if (selectedProduct) {
+      setRows(rows.filter((row) => row.id === selectedProduct.id));
+    } else {
+       setRows([]); 
+      getUsers(); // Reset when input is cleared
+    }
+  };
     const deleteApi = async(id) => {
         const userDoc = doc(db,"products",id);
         await deleteDoc(userDoc);
@@ -99,7 +124,38 @@ export default function ProductList() {
   };
 
   return (
+    <>
+    <div>
+      
+      <Modal
+        open={open}
+        // onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+            <Addproduct closeEvent={handleClose}/>
+        </Box>
+      </Modal>
+    </div>
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <Stack direction="row" spacing={2} style={{paddingTop:15,paddingLeft:15 ,alignItems:"center"}}>
+            <Autocomplete disablePortal
+                          id="combo-box-demo"
+                          options={rows}
+                          sx={{width: 300}}
+                          onChange={(e,v) => filterData(v || null)}
+                          getOptionLabel = {(rows) => rows.Name || ""}
+                          renderInput = {
+                            (params) => (
+                                <TextField {...params} size="small" label="Search Products"/>
+                            )
+                          }
+            />
+            <Typography variant="h6" sx={{flexGrow:1}}>
+                <Button style={{marginLeft:500}}   variant='contained' endIcon={<AddCircleIcon/>} onClick={handleOpen}>Add</Button>
+            </Typography>
+        </Stack>
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
@@ -170,5 +226,6 @@ export default function ProductList() {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Paper>
+    </>
   );
 }

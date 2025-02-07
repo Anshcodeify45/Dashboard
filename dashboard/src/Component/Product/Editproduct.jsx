@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Producthandeling() {
+function Editproduct() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function Producthandeling() {
   )
 }
 
-export default Producthandeling
+export default Editproduct

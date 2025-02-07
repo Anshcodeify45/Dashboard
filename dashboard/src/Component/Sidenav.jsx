@@ -16,8 +16,9 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import {useNavigate} from 'react-router-dom'
 import { useAppStore } from '../Apstore';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
-
+import SettingsIcon from '@mui/icons-material/Settings';
+import EqualizerIcon from '@mui/icons-material/Equalizer';
+import HomeIcon from '@mui/icons-material/Home';
 
 const drawerWidth = 240;
 
@@ -131,7 +132,7 @@ export default function Sidenav() {
                         },
                   ]}
                 >
-                  <InboxIcon />
+                  <HomeIcon />
                 </ListItemIcon>
                 <ListItemText
                   primary="Home"
@@ -225,7 +226,7 @@ export default function Sidenav() {
                         },
                   ]}
                 >
-                  <InboxIcon />
+                  <SettingsIcon />
                 </ListItemIcon>
                 <ListItemText
                   primary="Settings"
@@ -272,7 +273,7 @@ export default function Sidenav() {
                         },
                   ]}
                 >
-                  <InboxIcon />
+                  <EqualizerIcon />
                 </ListItemIcon>
                 <ListItemText
                   primary="Analytics"
