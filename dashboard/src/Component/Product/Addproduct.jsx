@@ -6,7 +6,16 @@ import IconButton from '@mui/material/IconButton';
 import { useState,useEffect } from 'react';
 import {Grid} from '@mui/material';
 import {TextField} from '@mui/material';
+
+
+
 function Addproduct({closeEvent}) {
+  const [name,setName] = useState("");
+  const [price,setPrice] = useState("");
+  const [category,setCategory] = useState("");
+  const createUser = () => {
+  
+  }
   return (
     <>
       <Box sx={{m:2}} />
@@ -39,5 +48,4 @@ function Addproduct({closeEvent}) {
     </>
   )
 }
-
 export default Addproduct
