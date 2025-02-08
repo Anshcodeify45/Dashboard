@@ -13,6 +13,17 @@ function Addproduct({closeEvent}) {
   const [name,setName] = useState("");
   const [price,setPrice] = useState("");
   const [category,setCategory] = useState("");
+
+  const handleNameChange = (event) =>{
+    setName(event.target.value);
+  }
+
+  const handlePriceChange = (event) =>{
+    setPrice(event.target.value);
+  }
+  const handleCategoryChange = (event) =>{
+    setCategory(event.target.value);
+  }
   const createUser = () => {
   
   }
@@ -28,13 +39,13 @@ function Addproduct({closeEvent}) {
         <Box height={20}/>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <TextField id='outlined-basic' label="Name" variant='outlined' size='small' sx={{minWidth:"100%"}}/>
+            <TextField id='outlined-basic' value={name} onChange={handleNameChange} label="Name" variant='outlined' size='small' sx={{minWidth:"100%"}}/>
           </Grid>
           <Grid item  xs={6}>
-            <TextField id='outlined-basic' label="Price" variant='outlined' size='small' sx={{minWidth:"100%"}}/>
+            <TextField id='outlined-basic' type="number" value={price} onChange={handlePriceChange}  label="Price" variant='outlined' size='small' sx={{minWidth:"100%"}}/>
           </Grid>
           <Grid item  xs={6}>
-            <TextField id='outlined-basic' label="Category" variant='outlined' size='small' sx={{minWidth:"100%"}}/>
+            <TextField id='outlined-basic' value={category} onChange={handleCategoryChange}  label="Category" variant='outlined' size='small' sx={{minWidth:"100%"}}/>
           </Grid>
           <Grid item  xs={6}>
             <Typography variant='h5' align='center'>
