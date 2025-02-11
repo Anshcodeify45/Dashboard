@@ -24,6 +24,7 @@ import {Typography} from '@mui/material';
 import Modal from '@mui/material/Modal';
 import Addproduct from './Addproduct';
 import Editproduct from './Editproduct';
+import { useAppstore } from '../Appstore';
 
 const style = {
     position: 'absolute',
@@ -41,7 +42,8 @@ const style = {
 export default function ProductList() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
-  const [rows, setRows] = useState([]);
+  const setRows = useAppstore((state) => state.setRows);
+  const rows = useAppstore((state) => state.rows);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -55,21 +57,44 @@ export default function ProductList() {
     getUsers();
   },[])
 
+//   const getUsers = async () => {
+//     try {
+//       const querySnapshot = await getDocs(empCollectionRef);
+  
+//       // Check if Firestore returns any documents
+//       if (querySnapshot.empty) {
+//         console.log("No documents found in Firestore ❌");
+//       } else {
+//         console.log("Documents found ✅");
+//         querySnapshot.forEach((doc) => {
+//           console.log(`Document ID: ${doc.id}`, doc.data()); // Log each document
+//         });
+//       }
+  
+//       // Store in state
+//       setRows(querySnapshot.docs.map((doc) => ({
+//         id: doc.id,
+//         ...doc.data()
+//       })));
+//     } catch (error) {
+//       console.error("Error fetching data from Firestore:", error);
+//     }
+//   };
+
+
   const getUsers = async () => {
     try {
       const querySnapshot = await getDocs(empCollectionRef);
   
-      // Check if Firestore returns any documents
       if (querySnapshot.empty) {
         console.log("No documents found in Firestore ❌");
       } else {
         console.log("Documents found ✅");
-        querySnapshot.forEach((doc) => {
-          console.log(`Document ID: ${doc.id}`, doc.data()); // Log each document
-        });
       }
   
-      // Store in state
+      // Ensure rows are reset before setting new data
+      setRows([]); // ✅ Clears old data before updating state
+  
       setRows(querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data()
@@ -99,12 +124,20 @@ export default function ProductList() {
         })
     }
  //filter data
- const filterData = (selectedProduct) => {
+//  const filterData = (selectedProduct) => {
+//     if (selectedProduct) {
+//       setRows(rows.filter((row) => row.id === selectedProduct.id));
+//     } else {
+//        setRows([]); 
+//       getUsers(); // Reset when input is cleared
+//     }
+//   };
+
+  const filterData = (selectedProduct) => {
     if (selectedProduct) {
       setRows(rows.filter((row) => row.id === selectedProduct.id));
     } else {
-       setRows([]); 
-      getUsers(); // Reset when input is cleared
+      getUsers(); // ✅ Reload original data when search is cleared
     }
   };
     const deleteApi = async(id) => {
