@@ -58,6 +58,9 @@ function Addproduct({closeEvent}) {
           Category:category,
           Date:String(new Date()),
         });
+        setName("");
+        setPrice("");
+        setCategory("");
         getUsers();
         closeEvent();
         Swal.fire("Submitted","Your file has been submitted.","success");
@@ -75,7 +78,7 @@ function Addproduct({closeEvent}) {
             console.log(`Document ID: ${doc.id}`, doc.data()); // Log each document
           });
         }
-    
+        setRows([]);
         // Store in state
         setRows(querySnapshot.docs.map((doc) => ({
           id: doc.id,

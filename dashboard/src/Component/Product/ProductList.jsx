@@ -41,12 +41,16 @@ const style = {
 
 export default function ProductList() {
   const [page, setPage] = useState(0);
+  const [formid, setFormid] = useState("");
   const [rowsPerPage, setRowsPerPage] = useState(5);
   const setRows = useAppstore((state) => state.setRows);
   const rows = useAppstore((state) => state.rows);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
+  const [editopen ,setEditOpen]=useState(false);
+  const handleEditOpen = () => setEditOpen(true);
   const handleClose = () => setOpen(false);
+  const handleEditClose = () => setEditOpen(false)
   const empCollectionRef = collection(db,"products");
   console.log("Firestore Collection Reference:", empCollectionRef);
 
@@ -137,14 +141,30 @@ export default function ProductList() {
     if (selectedProduct) {
       setRows(rows.filter((row) => row.id === selectedProduct.id));
     } else {
+        setRows([]);
       getUsers(); // ✅ Reload original data when search is cleared
     }
   };
+
+
+  //Edit Data
+    const editData = (id,Name,Price,Category) =>{
+        const data ={
+            id:id,
+            name:Name,
+            price:Price,
+            category:Category,
+        }
+        setFormid(data);
+        handleEditOpen();
+    }
+
+  //Delete Data
     const deleteApi = async(id) => {
         const userDoc = doc(db,"products",id);
         await deleteDoc(userDoc);
         Swal.fire("Deleted", "Your file has been deleted","success")
-        getUsers();
+        await getUsers();
     }
 
   const handleChangePage = (event, newPage) => {
@@ -168,6 +188,17 @@ export default function ProductList() {
       >
         <Box sx={style}>
             <Addproduct closeEvent={handleClose}/>
+        </Box>
+      </Modal>
+
+      <Modal
+        open={editopen}
+        // onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+            <Editproduct closeEvent={handleEditClose} fid={formid}/>
         </Box>
       </Modal>
     </div>
@@ -226,27 +257,28 @@ export default function ProductList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            
-          {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    return (
-                    <TableRow hover role="checkbox" tabIndex={-1}>
-                        <TableCell key={row.id} align="left">{row.Name}</TableCell>
-                        <TableCell key={row.id} align="left">{row.Category}</TableCell>
-                        <TableCell key={row.id} align="left">{row.Price}</TableCell>
-                        <TableCell key={row.id} align="left">{row.Date}</TableCell>
-                        <TableCell key={row.id} align="left">
-                            <Stack spacing={2} direction="row">
-                                <EditIcon style={{fontSize:"20px",color:"blue",cursor:"pointer"}}  />
-                                <DeleteIcon style={{fontSize:"20px",color:"darkred",cursor:"pointer"}} onClick={()=> deleteUser(row.id)} />
-                            </Stack>
-                        </TableCell>
+                {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
+                    <TableRow key={index} hover role="checkbox">
+                    <TableCell align="left">{row.Name}</TableCell>
+                    <TableCell align="left">{row.Category}</TableCell>
+                    <TableCell align="left">{row.Price}</TableCell>
+                    <TableCell align="left">{row.Date}</TableCell>
+                    <TableCell align="left">
+                        <Stack spacing={2} direction="row">
+                        <EditIcon style={{ fontSize: "20px", color: "blue", cursor: "pointer" }} 
+                               onClick = { () => {
+                                        editData(row.id,row.Name,row.Price,row.Category)
+                                }
+                               } 
+                        />
+                        <DeleteIcon style={{ fontSize: "20px", color: "darkred", cursor: "pointer" }} 
+                                    onClick={() => deleteUser(row.id)} />
+                        </Stack>
+                    </TableCell>
                     </TableRow>
-                    
-                    );
-                })
-          }
-                            
-          </TableBody>
+                ))}
+                </TableBody>
+
         </Table>
       </TableContainer>
       <TablePagination
