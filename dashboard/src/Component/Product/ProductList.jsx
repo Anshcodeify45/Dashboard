@@ -10,7 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import { useState,useEffect } from 'react';
 import { Button,Box } from '@mui/material';
 import { db } from '../../FireBase-config';
-import {addDoc,updateDoc,deleteDoc,doc} from 'firebase/firestore'
+import {deleteDoc,doc} from 'firebase/firestore'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import Swal from 'sweetalert2'
@@ -25,6 +25,10 @@ import Modal from '@mui/material/Modal';
 import Addproduct from './Addproduct';
 import Editproduct from './Editproduct';
 import { useAppstore } from '../Appstore';
+import Skeleton from '@mui/material/Skeleton';
+
+
+
 
 const style = {
     position: 'absolute',
@@ -291,6 +295,26 @@ export default function ProductList() {
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
     </Paper>
+    {
+                    rows.length == 0 &&(
+                        <>
+                        <Paper sx={{width:"98%",overflow:"hidden",padding:"12px"}}>
+                          <Box height={20}/>
+                          <Skeleton variant="rectangular" width={"100%"} height={30} /> 
+                          <Box height={40}/>
+                          <Skeleton variant="rectangular" width={"100%"} height={60} />
+                          <Box height={20}/>
+                          <Skeleton variant="rectangular" width={"100%"} height={60} /> 
+                          <Box height={20}/>
+                          <Skeleton variant="rectangular" width={"100%"} height={60} />
+                          <Box height={20}/>
+                          <Skeleton variant="rectangular" width={"100%"} height={60} />
+                          <Box height={20}/>
+                          <Skeleton variant="rectangular" width={"100%"} height={60} />
+                        </Paper>
+                        </>
+                    )
+    }
     </>
   );
 }
