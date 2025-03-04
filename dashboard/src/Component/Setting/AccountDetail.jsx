@@ -9,7 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
 import Grid from '@mui/material/Grid';
-import { Box} from '@mui/system';
+import { Box, padding} from '@mui/system';
 import Stack from '@mui/system';
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -60,21 +60,21 @@ export default function AccountDetail() {
                     alt="Paella dish"
                 />
                 <CardContent>
-                    <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                    This impressive paella is a perfect party dish and a fun meal to cook
-                    together with your guests. Add 1 cup of frozen peas along with the mussels,
-                    if you like.
+                    <Typography variant="p" style={{ color: 'text.secondary',textAlign:"start" }}>
+                            This impressive paella is a perfect party dish and a fun meal to cook
+                            together with your guests. Add 1 cup of frozen peas along with the mussels,
+                            if you like.
                     </Typography>
                 </CardContent>
                 </Card>
         </Grid>
         <Grid item xs={8}>
-        <Card sx={{ width: "100%",border:"2px solid",height:"68vh" }}>
-            <Typography variant='h5' style={{paddingTop:"15px"}}>About Me</Typography>
+        <Card sx={{ width: "100%",height:"68vh" }}>
+            <Typography variant='h5' style={{paddingTop:"15px",paddingLeft:25 }}>About Me</Typography>
             <hr/>
-          <Box>
+          <Box >
             <Box style={{paddingBottom:10}}>
-                <Typography variant='p'>
+                <Typography variant='p' style={{paddingLeft:"25px",textAlign:"center"}}>
                     This impressive paella is a perfect party dish and a fun meal to cook
                     together with your guests. Add 1 cup of frozen peas along with the mussels,
                     if you like.This impressive paella is a perfect party dish and a fun meal to cook
@@ -83,22 +83,26 @@ export default function AccountDetail() {
             </Box>
             <hr/>
             <Box>
-               <Typography variant='h5'>Details</Typography>
+               <Typography variant='h5' style={{paddingLeft:"25px",paddingTop:15 }}>Details</Typography>
             </Box>
-            <Box>
-               <Typography><span style={{fontWeight:600}}>Full Name :</span> Raj Kumar</Typography>
+            <Box style={{paddingTop:15 , paddingBottom:5,paddingLeft:"25px" }}>
+               <Typography><span style={{fontWeight:600 ,paddingRight:40}}>Full Name :</span>Raj Kumar</Typography>
             </Box>
-            <Box>
-               <Typography><span style={{fontWeight:600}}>Email :</span> rajkumar@Gmail.com</Typography>
+            <hr/>
+            <Box style={{paddingTop:5 , paddingBottom:5,paddingLeft:"25px" }}>
+               <Typography><span style={{fontWeight:600 ,paddingRight:71}}>Email :</span> rajkumar@Gmail.com</Typography>
             </Box>
-            <Box>
-               <Typography><span style={{fontWeight:600}}>Address :</span> bellmount,London</Typography>
+            <hr/>
+            <Box style={{paddingTop:5 , paddingBottom:5,paddingLeft:"25px" }}>
+               <Typography><span style={{fontWeight:600 ,paddingRight:50}}>Address :</span> bellmount,London</Typography>
             </Box>
-            <Box>
-               <Typography><span style={{fontWeight:600}}>ZipCode :</span> 800885</Typography>
+            <hr/>
+            <Box style={{paddingTop:5 , paddingBottom:5,paddingLeft:"25px" }}>
+               <Typography><span style={{fontWeight:600 ,paddingRight:50}}>ZipCode :</span> 800885</Typography>
             </Box>
-            <Box>
-               <Typography><span style={{fontWeight:600}}>Website :</span> http//:raj.dashboard.com</Typography>
+            <hr/>
+            <Box style={{paddingTop:5 , paddingBottom:5,paddingLeft:"25px" }}>
+               <Typography><span style={{fontWeight:600 ,paddingRight:50}}>Website :</span> http//:raj.dashboard.com</Typography>
             </Box>
           </Box>
         </Card>
