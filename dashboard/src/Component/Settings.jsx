@@ -1,12 +1,12 @@
 import React from 'react'
 import Navbar from './Navbar'
 import List from './Setting/List'
-import { Box, width } from '@mui/system'
+import { Box, height, width } from '@mui/system'
 function Settings() {
   return (
-    <div style={{marginTop:48,width:"80%",marginLeft:30}}>
+    <div style={{paddingTop:30,width:"100%",paddingLeft:50,paddingRight:90,paddingBottom:33,backgroundColor:"#050223"}}>
       <Navbar/>
-      <Box height={70}/>
+      <Box style={{height:'10vh'}}/>
           <List/>
     </div>
   )

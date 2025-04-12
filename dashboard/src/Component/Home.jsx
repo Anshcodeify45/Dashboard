@@ -10,6 +10,7 @@ import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import Accordionn from './Accordionn';
 import ChartGraph from './ChartGraph';
 import CountUp from 'react-countup';
+import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 
 
@@ -18,6 +19,8 @@ const ParentBox = styled(Box)`
  align-items:center;
  justify-content:space-evenly;
  width:70%;
+ font-family: 'Poppins', sans-serif;
+
 `
 
 const Leftcard = styled(Box)`
@@ -26,14 +29,14 @@ const Leftcard = styled(Box)`
 
 function Home() {
   return (
-    <Box style={{marginTop:55,width:"100%",height:"91vh",backgroundColor:"#edeff1"}}>
+    <Box style={{marginTop:55,width:"100%",height:"91vh", backgroundColor:'#0F0E47'}}>
     <Navbar/>
-    <Box style={{backgroundColor:"#edeff1"}}>
+    <Box style={{backgroundColor:'#0F0E47'}}>
     <Grid container spacing={2} style={{paddingTop:25,paddingLeft:25}}>
         <Grid item xs={8}>
         <Stack spacing={2} direction="row">
         <Card sx={{ width: 99 +"%" ,height:130}}>
-      <CardContent style={{backgroundColor:"#4E228E",color:"white"}}>
+      <CardContent>
         <Leftcard >
           <Box><LocalAtmIcon/></Box>
           <Box>
@@ -42,7 +45,7 @@ function Home() {
           </Typography>
           </Box>
           <Box>
-          <Typography variant="body2">
+          <Typography variant="body2" style={{fontSize:18,fontWeight:600}}>
             Total Earnings
         </Typography>
           </Box>
@@ -51,7 +54,7 @@ function Home() {
     </Card>
 
     <Card sx={{ width: 99 +"%" ,height:130}}>
-      <CardContent style={{backgroundColor:"#7D5AB1",color:"white"}}>
+      <CardContent>
         <Leftcard >
           <Box><LocalAtmIcon/></Box>
           <Box>
@@ -60,7 +63,7 @@ function Home() {
           </Typography>
           </Box>
           <Box>
-          <Typography variant="body2">
+          <Typography variant="body2" style={{fontSize:18,fontWeight:600}}>
             Total Earnings
         </Typography>
           </Box>
@@ -91,7 +94,7 @@ function Home() {
     <Card sx={{ maxWidth: 300 }}>
       <CardContent style={{backgroundColor:" #38146F",color:"white"}}>
       <ParentBox>
-          <Box><AccountBalanceIcon/></Box>
+          <Box><MonetizationOnIcon/></Box>
           <Box>
             <Box><Typography style={{fontWeight:600}}>$<CountUp start={0} end={203} duration={2.75}/>K</Typography></Box>
             <Box><Typography>Total Income</Typography></Box>
@@ -121,7 +124,7 @@ function Home() {
         <Grid item xs={4}>
         
         <Card sx={{ height:52 + "vh" }}>
-      <CardContent>
+      <CardContent >
         <Box>
         <Box>
         <Typography gutterBottom variant="h5" component="div">
@@ -129,7 +132,7 @@ function Home() {
         </Typography>
         </Box>
         <Box>
-        <Accordionn/>
+        <Accordionn />
         </Box>
         </Box>
         

@@ -39,10 +39,10 @@ export default function AccountDetail() {
   const [expanded, setExpanded] = React.useState(false);
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box sx={{ width: '100%' ,backgroundColor:"#151244"}} >
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1}}>
         <Grid item xs={4}>
-                    <Card sx={{ maxWidth: 345 }}>
+                    <Card sx={{ maxWidth: 345 }} style={{backgroundColor:"#090933",color:"white"}}>
                 <CardHeader
                     avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -52,6 +52,8 @@ export default function AccountDetail() {
                     
                     title="Raj Kumar"
                     subheader="September 14, 2016"
+                    style={{color:"white"}}
+                    subheaderTypographyProps={{ style: { color: 'lightgray' } }}
                 />
                 <CardMedia
                     component="img"
@@ -59,7 +61,7 @@ export default function AccountDetail() {
                     image="https://cdn.corporatefinanceinstitute.com/assets/marketing.jpeg"
                     alt="Paella dish"
                 />
-                <CardContent>
+                <CardContent style={{color:'white',backgroundColor:"#090933"}}>
                     <Typography variant="p" style={{ color: 'text.secondary',textAlign:"start" }}>
                             This impressive paella is a perfect party dish and a fun meal to cook
                             together with your guests. Add 1 cup of frozen peas along with the mussels,
@@ -69,12 +71,12 @@ export default function AccountDetail() {
                 </Card>
         </Grid>
         <Grid item xs={8}>
-        <Card sx={{ width: "100%",height:"68vh" }}>
+        <Card sx={{ width: "100%",height:"68vh" ,backgroundColor:"#090933",color:"white"}}>
             <Typography variant='h5' style={{paddingTop:"15px",paddingLeft:25 }}>About Me</Typography>
             <hr/>
           <Box >
             <Box style={{paddingBottom:10}}>
-                <Typography variant='p' style={{paddingLeft:"25px",textAlign:"center"}}>
+                <Typography variant='p' style={{paddingLeft:"25px",textAlign:"start"}}>
                     This impressive paella is a perfect party dish and a fun meal to cook
                     together with your guests. Add 1 cup of frozen peas along with the mussels,
                     if you like.This impressive paella is a perfect party dish and a fun meal to cook

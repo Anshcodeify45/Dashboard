@@ -26,6 +26,7 @@ export const options = {
   series: [{ color: "#1A8763" }],
   intervals: { lineWidth: 1, barWidth: 1, style: "boxes" },
   legend: "none",
+   backgroundColor:'#0F0E47',
 };
 
 export default function Linergraph() {
@@ -36,6 +37,7 @@ export default function Linergraph() {
       height="300px"
       data={data}
       options={options}
+     
     />
   );
 }

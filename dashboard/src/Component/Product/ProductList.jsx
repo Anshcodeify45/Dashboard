@@ -26,6 +26,7 @@ import Addproduct from './Addproduct';
 import Editproduct from './Editproduct';
 import { useAppstore } from '../Appstore';
 import Skeleton from '@mui/material/Skeleton';
+import { color } from '@mui/system';
 
 
 
@@ -182,7 +183,7 @@ export default function ProductList() {
 
   return (
     <>
-    <div>
+    <div >
       
       <Modal
         open={open}
@@ -206,8 +207,8 @@ export default function ProductList() {
         </Box>
       </Modal>
     </div>
-    <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-        <Stack direction="row" spacing={2} style={{paddingTop:15,paddingLeft:15 ,alignItems:"center"}}>
+    <Paper sx={{ width: '100%', overflow: 'hidden' }} style={{ backgroundColor:'#505081',color:"white"}}>
+        <Stack direction="row" spacing={2} style={{paddingTop:15,paddingBottom:15,paddingLeft:15 ,alignItems:"center",color:"white"}}>
             <Autocomplete disablePortal
                           id="combo-box-demo"
                           options={rows}
@@ -216,7 +217,7 @@ export default function ProductList() {
                           getOptionLabel = {(rows) => rows.Name || ""}
                           renderInput = {
                             (params) => (
-                                <TextField {...params} size="small" label="Search Products"/>
+                                <TextField {...params} size="small" label="Search Products" style={{backgroundColor:'#31316B'}}/>
                             )
                           }
             />
@@ -224,37 +225,38 @@ export default function ProductList() {
                 <Button style={{marginLeft:500}}   variant='contained' endIcon={<AddCircleIcon/>} onClick={handleOpen}>Add</Button>
             </Typography>
         </Stack>
-      <TableContainer sx={{ maxHeight: 440 }}>
-        <Table stickyHeader aria-label="sticky table">
+      <TableContainer sx={{ maxHeight: 440 }} style={{ backgroundColor:'#505081',color:"white"}}>
+        <Table stickyHeader aria-label="sticky table" >
           <TableHead>
             <TableRow>
                 <TableCell
                   align="left"
-                  style={{ minWidth: "100px"}}
+                  style={{ minWidth: "100px",backgroundColor:"#31316B",color:"white"}}
+                 
                 >
                   Name
                 </TableCell>
                 <TableCell
                   align="left"
-                  style={{ minWidth: "100px"}}
+                  style={{ minWidth: "100px",backgroundColor:"#31316B",color:"white"}}
                 >
                   Category
                 </TableCell>
                 <TableCell
                   align="left"
-                  style={{ minWidth: "100px"}}
+                  style={{ minWidth: "100px",backgroundColor:"#31316B",color:"white"}}
                 >
                   Price
                 </TableCell>
                 <TableCell
                   align="left"
-                  style={{ minWidth: "100px"}}
+                  style={{ minWidth: "100px",backgroundColor:"#31316B",color:"white"}}
                 >
                   Date
                 </TableCell>
                 <TableCell
                   align="left"
-                  style={{ minWidth: "100px"}}
+                  style={{ minWidth: "100px",backgroundColor:"#31316B",color:"white"}}
                 >
                   Edit
                 </TableCell>
@@ -262,12 +264,12 @@ export default function ProductList() {
           </TableHead>
           <TableBody>
                 {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => (
-                    <TableRow key={index} hover role="checkbox">
-                    <TableCell align="left">{row.Name}</TableCell>
-                    <TableCell align="left">{row.Category}</TableCell>
-                    <TableCell align="left">{row.Price}</TableCell>
-                    <TableCell align="left">{row.Date}</TableCell>
-                    <TableCell align="left">
+                    <TableRow key={index} hover role="checkbox" >
+                    <TableCell align="left" style={{color:"white",borderColor:'#9D9DCC'}}>{row.Name}</TableCell>
+                    <TableCell align="left" style={{color:"white",borderColor:'#9D9DCC'}}>{row.Category}</TableCell>
+                    <TableCell align="left" style={{color:"white",borderColor:'#9D9DCC'}}>{row.Price}</TableCell>
+                    <TableCell align="left" style={{color:"white",borderColor:'#9D9DCC'}}>{row.Date}</TableCell>
+                    <TableCell align="left" style={{color:"white",borderColor:'#9D9DCC'}}>
                         <Stack spacing={2} direction="row">
                         <EditIcon style={{ fontSize: "20px", color: "blue", cursor: "pointer" }} 
                                onClick = { () => {
@@ -289,10 +291,11 @@ export default function ProductList() {
         rowsPerPageOptions={[10, 25, 100]}
         component="div"
         count={rows.length}
-        rowsPerPage={rowsPerPage}
+        rowsPerPage={rowsPerPage} 
         page={page}
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
+        style={{backgroundColor:"#31316B",color:"white"}}
       />
     </Paper>
     {

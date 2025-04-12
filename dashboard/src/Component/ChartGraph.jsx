@@ -1,4 +1,4 @@
-import { Box } from "@mui/system";
+import { Box, fontSize } from "@mui/system";
 import React from "react";
 import { Chart } from "react-google-charts";
 
@@ -19,10 +19,12 @@ const options = {
     title: "Company Performance",
     subtitle: "Sales and Expenses over the Years",
   },
-  colors: ["#4E228E", "#38146F", "#A589D0"],
+  colors: ["#20B2AA", "rgb(141, 52, 218)", "#FFD700"],
   
-  hAxis: { title: "Year", titleTextStyle: { color: "#B0B0B0" },textStyle: { color: "white" }},
-  vAxis: { title: "Value", titleTextStyle: { color: "#B0B0B0" } ,textStyle: { color: "white"}},
+  hAxis: { title: "Year", titleTextStyle: { color: "black" },fontSize: 12},
+  vAxis: { title: "Value", titleTextStyle: { color: "black" },fontSize: 12},
+
+
  
 };
 
@@ -36,7 +38,6 @@ function ChartGraph() {
       height="350px"
       data={data}
       options={options}
-      color="white"
     />
     </Box>
   );

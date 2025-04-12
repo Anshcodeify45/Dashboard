@@ -29,6 +29,8 @@ const openedMixin = (theme) => ({
     duration: theme.transitions.duration.enteringScreen,
   }),
   overflowX: 'hidden',
+  backgroundColor:'#272757',
+  color:'white'
 });
 
 const closedMixin = (theme) => ({
@@ -41,6 +43,8 @@ const closedMixin = (theme) => ({
   [theme.breakpoints.up('sm')]: {
     width: `calc(${theme.spacing(8)} + 1px)`,
   },
+   backgroundColor:'#272757',
+  color:'white'
 });
 
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -88,12 +92,12 @@ export default function Sidenav() {
 
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box sx={{ display: 'flex'}}>
       <CssBaseline />
       
         
 
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent" open={open} >
         <DrawerHeader>
           <IconButton>
             {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}

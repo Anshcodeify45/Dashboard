@@ -30,7 +30,7 @@ const Container = styled(Box)`
 
 export default function Analytics() {
   return (
-    <Box style={{marginTop:15,width:"100%",height:"97vh" ,backgroundColor:"#edeff1"}}>
+    <Box style={{marginTop:15,width:"100%",height:"97vh" ,backgroundColor:"#090933"}}>
         <Navbar/>
         <Container>
         <Grid container spacing={2} >
@@ -91,7 +91,7 @@ export default function Analytics() {
         </Stack>
         </Grid>
         <Grid item xs={8} style={{paddingLeft:"15px"}}>
-        <Card sx={{width:"90%",height:"43vh" ,border:"none",marginLeft:"25px"}}>
+        <Card sx={{width:"90%",height:"43vh" ,border:"none",marginLeft:"25px",backgroundColor:"#090933"}}>
         <CardContent >
         <Linergraph />
         </CardContent>     
@@ -99,9 +99,9 @@ export default function Analytics() {
         </Grid>
       </Grid>
       <Grid container spacing={2} style={{marginTop:"8px"}}>
-        <Grid item xs={7} style={{marginLeft:19}}>
+        <Grid item xs={6} style={{marginLeft:19}}>
         <Stack spacing={2}>
-        <Card sx={{ height:43 + "vh"}}>
+        <Card sx={{ height:43 + "vh",backgroundColor:"#090933"}}>
       <CardContent>
         <Box >
         <GeoChart />
@@ -110,8 +110,8 @@ export default function Analytics() {
         </Card>
         </Stack>
         </Grid>
-        <Grid item xs={4} style={{marginLeft:25}}>
-        <Card sx={{ height:43 + "vh"}}>
+        <Grid item xs={5} style={{marginLeft:25}}>
+        <Card sx={{ height:39 + "vh",backgroundColor:"#090933"}}>
       <CardContent >
         <Box>
         <Pie />

@@ -1,7 +1,7 @@
 import React from 'react'
 import ProductList from './Product/ProductList'
 import Navbar from './Navbar'
-import { Box,padding,styled } from '@mui/system'
+import { border, Box,padding,styled } from '@mui/system'
 import { Typography } from '@mui/material'
 import Divider from '@mui/material/Divider'
 
@@ -14,7 +14,7 @@ const TableBox = styled(Box)`
      margin-top:14vh;
 `
 const Parent = styled(Box)`
-     background-color:#edeff1;
+     background-color:#0F0E47;
      width:100%;
      height:99vh;
 `
@@ -23,10 +23,9 @@ function Product() {
     <Parent>
       <Navbar/>
       <TableBox>
-        <Box style={{backgroundColor:"white",paddingLeft:"15px",paddingBottom:"20px",paddingTop:"20px"}}>
+        <Box style={{backgroundColor:"#31316B",paddingLeft:"15px",paddingBottom:"20px",paddingTop:"20px",color:"white"}}>
             <Typography variant='h4'>Product List</Typography>
         </Box>
-        <Divider/>
         <Box>
         <ProductList/>
         </Box>

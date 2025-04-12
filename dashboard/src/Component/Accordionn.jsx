@@ -8,7 +8,7 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 export default function Accordionn() {
   return (
-    <div>
+    <div >
       <Accordion>
         <AccordionSummary
           expandIcon={<ArrowDownwardIcon />}
@@ -17,7 +17,55 @@ export default function Accordionn() {
         >
           <Typography component="span">Accordion 1</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails style={{ backgroundColor:'#5C5C99'}}>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ArrowDropDownIcon />}
+          aria-controls="panel2-content"
+          id="panel2-header"
+          
+        >
+          <Typography component="span">Accordion 2</Typography>
+        </AccordionSummary>
+        <AccordionDetails style={{ backgroundColor:'#5C5C99'}}>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ArrowDropDownIcon />}
+          aria-controls="panel2-content"
+          id="panel2-header"
+        
+        >
+          <Typography component="span">Accordion 3</Typography>
+        </AccordionSummary>
+        <AccordionDetails style={{ backgroundColor:'#5C5C99'}}>
+          <Typography>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
+            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          </Typography>
+        </AccordionDetails>
+      </Accordion>
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ArrowDropDownIcon />}
+          aria-controls="panel2-content"
+          id="panel2-header"
+         
+        >
+          <Typography component="span">Accordion 4</Typography>
+        </AccordionSummary>
+        <AccordionDetails style={{ backgroundColor:'#5C5C99'}}>
           <Typography>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
             malesuada lacus ex, sit amet blandit leo lobortis eget.
@@ -30,9 +78,9 @@ export default function Accordionn() {
           aria-controls="panel2-content"
           id="panel2-header"
         >
-          <Typography component="span">Accordion 2</Typography>
+          <Typography component="span">Accordion 5</Typography>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails style={{ backgroundColor:'#5C5C99'}}>
           <Typography>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
             malesuada lacus ex, sit amet blandit leo lobortis eget.
