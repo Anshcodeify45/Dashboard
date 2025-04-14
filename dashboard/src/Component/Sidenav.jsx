@@ -293,6 +293,54 @@ export default function Sidenav() {
                 />
               </ListItemButton>
             </ListItem>
+
+            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>nav("/products")}>
+              <ListItemButton
+                sx={[
+                  {
+                    minHeight: 48,
+                    px: 2.5,
+                  },
+                  open
+                    ? {
+                        justifyContent: 'initial',
+                      }
+                    : {
+                        justifyContent: 'center',
+                      },
+                ]}
+              >
+                <ListItemIcon
+                  sx={[
+                    {
+                      minWidth: 0,
+                      justifyContent: 'center',
+                    },
+                    open
+                      ? {
+                          mr: 3,
+                        }
+                      : {
+                          mr: 'auto',
+                        },
+                  ]}
+                >
+                  <ShoppingCartIcon />
+                </ListItemIcon>
+                <ListItemText
+                  primary="products"
+                  sx={[
+                    open
+                      ? {
+                          opacity: 1,
+                        }
+                      : {
+                          opacity: 0,
+                        },
+                  ]}
+                />
+              </ListItemButton>
+            </ListItem>
         </List>
         <Divider />
       </Drawer>

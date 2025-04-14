@@ -35,7 +35,7 @@ function Home() {
     <Grid container spacing={2} style={{paddingTop:25,paddingLeft:25}}>
         <Grid item xs={8}>
         <Stack spacing={2} direction="row">
-        <Card sx={{ width: 99 +"%" ,height:130}}>
+        <Card sx={{ width: 99 +"%" ,height:130,backgroundColor:"#301465",color:"white"}}>
       <CardContent>
         <Leftcard >
           <Box><LocalAtmIcon/></Box>
@@ -53,7 +53,7 @@ function Home() {
       </CardContent>
     </Card>
 
-    <Card sx={{ width: 99 +"%" ,height:130}}>
+    <Card sx={{ width: 99 +"%" ,height:130,backgroundColor:"#1a1541",color:"white"}}>
       <CardContent>
         <Leftcard >
           <Box><LocalAtmIcon/></Box>

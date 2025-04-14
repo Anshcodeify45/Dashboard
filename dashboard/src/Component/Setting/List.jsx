@@ -50,7 +50,6 @@ export default function List() {
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
           <Tab label="Profile" {...a11yProps(0)}  style={{color:'white'}}/>
           <Tab label="Contact us" {...a11yProps(1)} style={{color:'white'}}/>
-          <Tab label="Item Three" {...a11yProps(2)}  style={{color:'white'}}/>
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0} style={{backgroundColor:"#151244",color:"white"}}>
@@ -58,11 +57,7 @@ export default function List() {
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
        <Form/>
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        Item Three
-      </CustomTabPanel>
-    
+      </CustomTabPanel>  
     </Card>
   );
 }
