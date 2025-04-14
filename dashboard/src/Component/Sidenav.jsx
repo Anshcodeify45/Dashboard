@@ -19,7 +19,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import SettingsIcon from '@mui/icons-material/Settings';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
 import HomeIcon from '@mui/icons-material/Home';
-
+import ShopIcon from '@mui/icons-material/Shop';
 const drawerWidth = 240;
 
 const openedMixin = (theme) => ({
@@ -152,7 +152,7 @@ export default function Sidenav() {
                 />
               </ListItemButton>
             </ListItem>
-            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>nav("/product")}>
+            <ListItem  disablePadding sx={{ display: 'block' }} onClick={()=>nav("/productSales")}>
               <ListItemButton
                 sx={[
                   {
@@ -183,10 +183,10 @@ export default function Sidenav() {
                         },
                   ]}
                 >
-                  <ShoppingCartIcon />
+                  <ShopIcon />
                 </ListItemIcon>
                 <ListItemText
-                  primary="product"
+                  primary="Sales"
                   sx={[
                     open
                       ? {

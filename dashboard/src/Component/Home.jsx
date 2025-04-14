@@ -29,9 +29,9 @@ const Leftcard = styled(Box)`
 
 function Home() {
   return (
-    <Box style={{marginTop:55,width:"100%",height:"91vh", backgroundColor:'#0F0E47'}}>
+    <Box style={{marginTop:55,width:"100%",height:"91vh",background: "linear-gradient(135deg, #090933, #1a1541, #51218c)"}}>
     <Navbar/>
-    <Box style={{backgroundColor:'#0F0E47'}}>
+    <Box>
     <Grid container spacing={2} style={{paddingTop:25,paddingLeft:25}}>
         <Grid item xs={8}>
         <Stack spacing={2} direction="row">

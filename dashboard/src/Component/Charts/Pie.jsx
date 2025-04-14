@@ -38,7 +38,7 @@ export default function Pie() {
     <Chart
       chartType="PieChart"
       width="100%"
-      height="310px"
+      height="340px"
       data={data}
       options={options}
     />

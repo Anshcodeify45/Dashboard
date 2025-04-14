@@ -14,7 +14,7 @@ const TableBox = styled(Box)`
      margin-top:14vh;
 `
 const Parent = styled(Box)`
-     background-color:#0F0E47;
+     background: linear-gradient(135deg, #090933, #1a1541, #51218c);
      width:100%;
      height:99vh;
 `

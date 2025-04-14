@@ -1,3 +1,4 @@
+import { style } from "@mui/system";
 import React from "react";
 import { Chart } from "react-google-charts";
 
@@ -26,14 +27,14 @@ export const options = {
   series: [{ color: "#1A8763" }],
   intervals: { lineWidth: 1, barWidth: 1, style: "boxes" },
   legend: "none",
-   backgroundColor:'#0F0E47',
+   backgroundColor:'#1a1541',
 };
 
 export default function Linergraph() {
   return (
     <Chart
       chartType="LineChart"
-      width="100%"
+      width="800px"
       height="300px"
       data={data}
       options={options}

@@ -13,7 +13,7 @@ function App() {
       <Sidenav/>
         <Routes>
           <Route path="/" element={<Home/>}></Route>
-          <Route path="/product" element={<Product/>}></Route>
+          <Route path="/productSales" element={<Product/>}></Route>
           <Route path="/settings" element={<Settings/>}></Route>
           <Route path="/analytics" element={<Analytics/>}></Route>
           <Route path="/products" element={<Products/>}></Route>

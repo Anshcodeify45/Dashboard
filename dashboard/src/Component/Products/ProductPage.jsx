@@ -147,10 +147,10 @@ function ProductPage() {
                       marginRight:15}}>
             <CardMedia component="img"  image={selectedCard.image} alt={selectedCard.title} 
             sx={{ objectFit: 'contain',
-              borderRadius: '12px 12px 0 0' ,width:"250px",height:"240px",margin:"45px 32px"}}/>
+              borderRadius: '12px 12px 0 0' ,width:"250px",height:"240px",margin:"35px 32px"}}/>
             <CardContent>
               <Typography variant="h5" gutterBottom>{selectedCard.title}</Typography>
-              <Typography variant="p">{selectedCard.price}</Typography>
+              <Typography variant="h6" style={{fontWeight:600}}>${selectedCard.price}</Typography>
               <Typography variant="body1">{selectedCard.description}</Typography>
               <Button variant='contained' style={{width:"80%",marginLeft:25,marginTop:15,
                     background: 'linear-gradient(135deg, #090933, #1a1541, #51218c)',
